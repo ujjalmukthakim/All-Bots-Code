@@ -38,5 +38,5 @@ try:
    for file in files:
        (folder_path / file).touch()
        
-except:
-    print('Error, This File Only Accept Number !')
+except Exception as e:
+    print(f'Error -{e}')
