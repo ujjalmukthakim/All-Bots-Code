@@ -1,7 +1,9 @@
 from pathlib import Path
 
 base = Path.cwd()
-
+folders=''
+files=''
+projects_number=[1,2,3]
 def Menu():
     
     MENU = """
@@ -20,14 +22,27 @@ def Menu():
 
 def create_project():
     project_select=int(input("Give Your Choice - "))
-    project_name=input("Give Name - ")
-    if project_select==1:
+
+    if project_select in projects_number:
+        
+        project_name=input("Give Project Name - ")
         try:
             project_path=Path(f'{base}/{project_name}')
             project_path.mkdir(parents=True,exist_ok=True)
         
         except Exception as e:
             print(e)
+    if project_select==4:
+        bot_name=input('Give Bot Name - ')
+        try:
+            bot_path=Path(f'{base}/{bot_name}')
+            bot_path.mkdir(parents=True,exist_ok=True)
+        except Exception as e:
+            print(e)
+    if project_select==5:
+        print("Ok Good Bye ...")
+        return
+
 
 
 
