@@ -1,8 +1,18 @@
 from pathlib import Path
 
-base = Path.cwd()
-folders=''
-files=''
+base = Path.home() / "Desktop"
+folders=[
+    'backend',
+    'frontend',
+    'docs',
+    'docker',
+    'scripts'
+]
+files=[
+    'README.md',
+    '.gitignore',
+    '.env.example'
+]
 projects_number=[1,2,3]
 def Menu():
     
@@ -32,6 +42,17 @@ def create_project():
         
         except Exception as e:
             print(e)
+        if project_select==1:
+            print('Coming Soon. . .')
+        elif project_select==2:
+            print('Coming Soon. . .')
+        else:
+            for folder in folders:
+                (project_path/folder).mkdir(parents=True,exist_ok=True)
+            for file in files:
+                (project_path/file).touch()
+
+
     if project_select==4:
         bot_name=input('Give Bot Name - ')
         try:
