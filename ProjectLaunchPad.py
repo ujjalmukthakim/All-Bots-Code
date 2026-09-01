@@ -1,4 +1,5 @@
 from pathlib import Path
+import subprocess
 
 base = Path.home() / "Desktop"
 folders=[
@@ -39,6 +40,19 @@ def create_project():
         try:
             project_path=Path(f'{base}/{project_name}')
             project_path.mkdir(parents=True,exist_ok=True)
+            command=['git','init']
+            try:
+                result=subprocess.run(
+                    command,
+                    cwd=project_path,
+                    text=True,
+                    check= True
+                )
+            
+            except Exception as e:
+                print(e)
+
+
         
         except Exception as e:
             print(e)
